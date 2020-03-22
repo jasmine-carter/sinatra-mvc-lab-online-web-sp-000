@@ -19,7 +19,7 @@ class PigLatinizer
 	def piglatinize_single_word(word)
 		vowels = ["a", "e", "i", "o", "u"]
 		if vowels.include?(word.downcase[0])
-			word = word << "way"
+			word = word << "w"
 		elsif vowels.include?(word.downcase[0]) && vowels.include?(word.downcase[1]) && vowels.include?(word.downcase[2])
 			word = word.split("").rotate(3).join
 		elsif vowels.include?(word.downcase[0]) && vowels.include?(word.downcase[1])

@@ -10,8 +10,8 @@ class PigLatinizer
 	def piglatinize(input)
 		#splits the input to capture multiple words
 		if input.split(" ").length == 1
-			self.piglatinize_single_word(input)
-		else self.piglatinize_sentence(input)
+			piglatinize_single_word(input)
+		else piglatinize_sentence(input)
 	end
 
 
@@ -25,7 +25,6 @@ class PigLatinizer
 			word = word.split("").rotate(2).join
 		elsif !vowels.include?(word.downcase[0])
 			word = word.split("").rotate(1).join
-
 		end
 		word << "ay"
 

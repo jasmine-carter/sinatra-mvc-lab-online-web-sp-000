@@ -13,4 +13,7 @@ class App < Sinatra::Base
     erb :pig_latined
   end
 
+  post '/piglatinize' do
+    "howdy world"
+  end
 end

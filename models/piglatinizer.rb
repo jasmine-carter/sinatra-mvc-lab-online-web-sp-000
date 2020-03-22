@@ -11,7 +11,7 @@ class PigLatinizer
 		#splits the input to capture multiple words
 		if input.split(" ").length == 1
 			self.piglatinize_single_word(input)
-		else piglatinize_sentence(input)
+		else self.piglatinize_sentence(input)
 	end
 
 

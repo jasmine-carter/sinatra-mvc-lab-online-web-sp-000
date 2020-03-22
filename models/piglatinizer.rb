@@ -8,54 +8,29 @@ class PigLatinizer
   #it needs to evaluate if the word starts with a vowel
   #if word starts with a vowel, add "way" to the end of the word
 
-  def piglatinize(text)
-    @text = text.downcase.split
-    @word_count = @text.count
-    translate(text)
-  end
 
-  def split_sentence
-    @text = text.split(" ")
-    @word_count = text.count
-  end
-
-  def vowel
-    vowels = ["a", "e", "i", "o", "u"]
-    if vowels.include?(text[0])
-      true
-    end
-  end
-
-  #method that determines if 1 or more words
-  def translate
-    if text.count = 1
-      text.single_word
-    else
-      text.multiple_words
-    end
-  end
+	def piglatinize(input)
+		#splits the input to capture multiple words
+		if input.split(" ").length == 1
+			piglatinize_single_word(input)
+		else piglatinize_sentence(input)
+	end
 
 
-  #translates a single word
-  def single_word
-    vowels = ["a", "e", "i", "o", "u"]
-    @text = @text.join("")
-    if vowels.include?(text[0])
-      text << "way"
-    else
-      text = text.split("")
-      text.each do |letter|
-        if vowels.include?(letter)
-          text << "ay"
-          break
-        else
-          text << letter
-          binding.pry
-          letter.delete_at[0]
-        end
-      end
-    end
-  end
+	def piglatinize_single_word(word)
+		vowels = ["a", "e", "i", "o", "u"]
+		if vowels.include?(word.downcase[0])
+			word = word << "way"
+		elsif vowels.include?(word.downcase[0]) && vowels.include?(word.downcase[1]) && vowels.include?(word.downcase[2])
+			word = word.split("").rotate(3).join
+		elsif vowels.include?(word.downcase[0]) && vowels.include?(word.downcase[1])
+			word = word.split("").rotate(2).join
+		elsif !vowels.include?(word.downcase[0])
+			word = word.split("").rotate(1).join
 
+		end
+		word << "ay"
 
-end
+	end
+
+end	

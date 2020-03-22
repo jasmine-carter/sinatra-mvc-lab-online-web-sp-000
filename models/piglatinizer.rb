@@ -12,6 +12,7 @@ class PigLatinizer
 		if input.split(" ").length == 1
 			piglatinize_single_word(input)
 		else piglatinize_sentence(input)
+    end
 	end
 
 

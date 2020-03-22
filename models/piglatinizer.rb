@@ -20,9 +20,9 @@ class PigLatinizer
 		vowels = ["a", "e", "i", "o", "u"]
 		if vowels.include?(word.downcase[0])
 			word = word << "w"
-		elsif vowels.include?(word.downcase[0]) && vowels.include?(word.downcase[1]) && vowels.include?(word.downcase[2])
+		elsif !vowels.include?(word.downcase[0]) && !vowels.include?(word.downcase[1]) && !vowels.include?(word.downcase[2])
 			word = word.split("").rotate(3).join
-		elsif vowels.include?(word.downcase[0]) && vowels.include?(word.downcase[1])
+		elsif !vowels.include?(word.downcase[0]) && !vowels.include?(word.downcase[1])
 			word = word.split("").rotate(2).join
 		elsif !vowels.include?(word.downcase[0])
 			word = word.split("").rotate(1).join

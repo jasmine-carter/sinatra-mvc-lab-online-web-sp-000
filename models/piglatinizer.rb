@@ -7,12 +7,10 @@ class PigLatinizer
   #it needs to add "ay" to the end of that word
   #it needs to evaluate if the word starts with a vowel
   #if word starts with a vowel, add "way" to the end of the word
-
-
 	def piglatinize(input)
 		#splits the input to capture multiple words
 		if input.split(" ").length == 1
-			piglatinize_single_word(input)
+			self.piglatinize_single_word(input)
 		else piglatinize_sentence(input)
 	end
 
